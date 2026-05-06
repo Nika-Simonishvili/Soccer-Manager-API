@@ -15,7 +15,7 @@ class AuthController extends Controller
     {
         $user = $authService->register($request->toDTO());
 
-        return Response::success(message: 'User registered successfully', data: [
+        return Response::success(message: __('messages.auth.registered'), data: [
             'user' => UserResource::make($user),
         ]);
     }
@@ -24,7 +24,7 @@ class AuthController extends Controller
     {
         $token = $authService->login($request->toDTO());
 
-        return Response::success(message: 'User logged in successfully', data: [
+        return Response::success(message: __('messages.auth.logged_in'), data: [
             'token' => $token,
         ]);
     }
@@ -33,6 +33,6 @@ class AuthController extends Controller
     {
         $authService->logout();
 
-        return Response::success(message: 'User logged out successfully');
+        return Response::success(message: __('messages.auth.logged_out'));
     }
 }

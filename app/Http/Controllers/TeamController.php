@@ -16,7 +16,7 @@ class TeamController extends Controller
             ->whereBelongsTo(auth()->user())
             ->first();
 
-        return Response::success(message: 'Team retrieved successfully', data: [
+        return Response::success(message: __('messages.team.retrieved'), data: [
             'team' => TeamResource::make($team),
         ]);
     }
@@ -29,6 +29,6 @@ class TeamController extends Controller
 
         $team->update($request->validated());
 
-        return Response::success(message: 'Team updated successfully', data: TeamResource::make($team));
+        return Response::success(message: __('messages.team.updated'), data: TeamResource::make($team));
     }
 }

@@ -161,4 +161,4 @@ composer test-prepare
 composer test
 ```
 
-38 feature tests covering authentication, team management, player updates, and marketplace transfers.
+36 feature tests covering authentication, team management, player updates, and marketplace transfers.

@@ -23,7 +23,7 @@ final readonly class MarketPlaceService
         $player = $marketplace->player;
 
         if ($sellerTeam->id === $buyerTeam->id) {
-            abort(code: 400, message: 'You cannot buy your own player');
+            abort(code: 400, message: __('messages.marketplace.cannot_buy_own_player'));
         }
 
         DB::transaction(function () use ($marketplace, $buyerTeam, $sellerTeam, $player) {
@@ -34,7 +34,7 @@ final readonly class MarketPlaceService
             $sellerTeam = $teams[$sellerTeam->id];
 
             if ($buyerTeam->budget < $marketplace->price) {
-                abort(code: 422, message: 'Insufficient budget');
+                abort(code: 422, message: __('messages.marketplace.insufficient_budget'));
             }
 
             $player->team()->associate($buyerTeam);

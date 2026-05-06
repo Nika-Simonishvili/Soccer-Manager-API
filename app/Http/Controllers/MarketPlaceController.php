@@ -19,7 +19,7 @@ class MarketPlaceController extends Controller
     {
         $data = $this->marketplaceService->index();
 
-        return Response::success(message: 'Players on marketplace retrieved successfully',
+        return Response::success(message: __('messages.marketplace.retrieved'),
             data: $data->through(fn ($item) => MarketPlaceResource::make($item)));
     }
 
@@ -29,6 +29,6 @@ class MarketPlaceController extends Controller
 
         $this->marketplaceService->buyPlayer($marketplace, $buyerTeam);
 
-        return Response::success(message: 'Player bought successfully');
+        return Response::success(message: __('messages.marketplace.bought'));
     }
 }

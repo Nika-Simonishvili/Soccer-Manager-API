@@ -31,7 +31,7 @@ final readonly class AuthService implements AuthServiceContract
         ];
 
         if (! auth()->attempt($credentials)) {
-            abort(401, 'Invalid credentials');
+            abort(401, __('messages.auth.invalid_credentials'));
         }
 
         return auth()->user()->createToken(name: 'auth_token')->plainTextToken;

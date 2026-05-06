@@ -18,7 +18,7 @@ class PlayerController extends Controller
 
         $player->update($request->validated());
 
-        return Response::success(message: 'Player updated successfully', data: [
+        return Response::success(message: __('messages.player.updated'), data: [
             'player' => PlayerResource::make($player),
         ]);
     }
@@ -34,7 +34,7 @@ class PlayerController extends Controller
             'price' => $dto->price,
         ]);
 
-        return Response::success(message: 'Player put on marketplace successfully', data: [
+        return Response::success(message: __('messages.player.put_on_marketplace'), data: [
             'player' => PlayerResource::make($player),
         ]);
     }
