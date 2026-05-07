@@ -1,0 +1,17 @@
+.env
+.env.backup
+.phpunit.result.cache
+.phpunit.cache
+node_modules/
+npm-debug.log
+yarn-error.log
+vendor/
+storage/*.key
+storage/framework/cache/**
+storage/framework/sessions/**
+storage/framework/testing/**
+storage/framework/views/**
+storage/logs/**
+.idea/
+.vscode/
+.DS_Store

@@ -4,14 +4,62 @@ A RESTful API for a fantasy football application where users create teams, manag
 
 ## Tech Stack
 
-- **Framework:** Laravel 13 (PHP 8.3)
+- **Framework:** Laravel 13 (PHP 8.4)
 - **Authentication:** Laravel Sanctum (token-based)
 - **Database:** MySQL
 - **Testing:** Pest
 
 ---
 
-## Setup
+## Quick Start (Docker)
+
+The easiest way to run and test this project is with Docker Compose. No local PHP or MySQL installation required.
+
+### Prerequisites
+
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
+### 1. Build and start
+
+```bash
+docker compose up --build
+```
+
+This will:
+- Build the PHP 8.4 application image with all dependencies
+- Start a MySQL 8 container
+- Automatically create `.env`, generate application key, run migrations, and seed the database
+- Serve the API at [http://localhost:8000](http://localhost:8000)
+
+### 2. Prepare the test database (run once, or after schema changes)
+
+```bash
+docker compose exec app composer test-prepare
+```
+
+### 3. Run tests
+
+```bash
+docker compose exec app composer test
+```
+
+### 3. Stop
+
+```bash
+docker compose down
+```
+
+To remove the database volume as well:
+```bash
+docker compose down -v
+```
+
+---
+
+## Manual Setup
+
+If you prefer to run the project without Docker:
 
 ### 1. Install dependencies
 
