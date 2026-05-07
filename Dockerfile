@@ -14,6 +14,9 @@ RUN apk add --no-cache \
     npm \
     $PHPIZE_DEPS
 
+# Suppress git dubious ownership warning for /var/www
+RUN git config --global --add safe.directory /var/www
+
 # Install PHP extensions required by Laravel
 RUN docker-php-ext-install \
     pdo_mysql \

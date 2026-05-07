@@ -8,7 +8,6 @@ services:
       - "8000:8000"
     environment:
       SESSION_DRIVER: database
-      QUEUE_CONNECTION: database
       CACHE_STORE: database
     volumes:
       - .:/var/www
@@ -32,6 +31,7 @@ services:
       MYSQL_PASSWORD: secret
     volumes:
       - db_data:/var/lib/mysql
+      - ./docker/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 5s
